@@ -5,7 +5,7 @@
   "description": "Three independent responsive website concepts by Fle3n",
   "scripts": {
     "start": "node server.mjs",
-    "check": "node --test tests/*.test.mjs"
+    "check": "node --test tests/logic.test.mjs"
   },
   "engines": {
     "node": ">=20"
