@@ -1,8 +1,14 @@
 {
   "name": "fle3n-web-showcase",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Three independent responsive website concepts by Fle3n",
-  "scripts": { "start": "node server.mjs", "check": "node --check server.mjs && node --check coffee/app.js && node --check clinic/app.js && node --check flow/app.js" },
-  "engines": { "node": ">=20" }
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module"
 }
