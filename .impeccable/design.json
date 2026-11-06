@@ -1,0 +1,794 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T15:17:32.521355+00:00",
+  "title": "Design System: Fle3n — Three Working Worlds",
+  "extensions": {
+    "colorMeta": {
+      "shared-surface": {
+        "role": "neutral",
+        "displayName": "Shared Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(49% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(72% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "shared-error": {
+        "role": "neutral",
+        "displayName": "Shared Error",
+        "tonalRamp": [
+          "oklch(15% 0.0386 28.26)",
+          "oklch(26% 0.0850 28.26)",
+          "oklch(38% 0.1236 28.26)",
+          "oklch(49% 0.1545 28.26)",
+          "oklch(61% 0.1545 28.26)",
+          "oklch(72% 0.1236 28.26)",
+          "oklch(84% 0.0695 28.26)",
+          "oklch(95% 0.0155 28.26)"
+        ]
+      },
+      "coffee-ground": {
+        "role": "neutral",
+        "displayName": "Coffee Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0010 106.47)",
+          "oklch(26% 0.0022 106.47)",
+          "oklch(38% 0.0032 106.47)",
+          "oklch(49% 0.0040 106.47)",
+          "oklch(61% 0.0040 106.47)",
+          "oklch(72% 0.0032 106.47)",
+          "oklch(84% 0.0018 106.47)",
+          "oklch(95% 0.0004 106.47)"
+        ]
+      },
+      "coffee-ink": {
+        "role": "neutral",
+        "displayName": "Coffee Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0036 136.70)",
+          "oklch(26% 0.0080 136.70)",
+          "oklch(38% 0.0116 136.70)",
+          "oklch(49% 0.0145 136.70)",
+          "oklch(61% 0.0145 136.70)",
+          "oklch(72% 0.0116 136.70)",
+          "oklch(84% 0.0065 136.70)",
+          "oklch(95% 0.0015 136.70)"
+        ]
+      },
+      "coffee-accent": {
+        "role": "primary",
+        "displayName": "Coffee Accent",
+        "tonalRamp": [
+          "oklch(15% 0.0067 155.34)",
+          "oklch(26% 0.0147 155.34)",
+          "oklch(38% 0.0214 155.34)",
+          "oklch(49% 0.0268 155.34)",
+          "oklch(61% 0.0268 155.34)",
+          "oklch(72% 0.0214 155.34)",
+          "oklch(84% 0.0121 155.34)",
+          "oklch(95% 0.0027 155.34)"
+        ]
+      },
+      "coffee-hover": {
+        "role": "neutral",
+        "displayName": "Coffee Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0091 147.73)",
+          "oklch(26% 0.0201 147.73)",
+          "oklch(38% 0.0292 147.73)",
+          "oklch(49% 0.0365 147.73)",
+          "oklch(61% 0.0365 147.73)",
+          "oklch(72% 0.0292 147.73)",
+          "oklch(84% 0.0164 147.73)",
+          "oklch(95% 0.0036 147.73)"
+        ]
+      },
+      "coffee-line": {
+        "role": "neutral",
+        "displayName": "Coffee Line",
+        "tonalRamp": [
+          "oklch(15% 0.0029 128.61)",
+          "oklch(26% 0.0064 128.61)",
+          "oklch(38% 0.0093 128.61)",
+          "oklch(49% 0.0116 128.61)",
+          "oklch(61% 0.0116 128.61)",
+          "oklch(72% 0.0093 128.61)",
+          "oklch(84% 0.0052 128.61)",
+          "oklch(95% 0.0012 128.61)"
+        ]
+      },
+      "coffee-muted": {
+        "role": "neutral",
+        "displayName": "Coffee Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0046 139.44)",
+          "oklch(26% 0.0102 139.44)",
+          "oklch(38% 0.0148 139.44)",
+          "oklch(49% 0.0185 139.44)",
+          "oklch(61% 0.0185 139.44)",
+          "oklch(72% 0.0148 139.44)",
+          "oklch(84% 0.0083 139.44)",
+          "oklch(95% 0.0019 139.44)"
+        ]
+      },
+      "coffee-focus": {
+        "role": "neutral",
+        "displayName": "Coffee Focus",
+        "tonalRamp": [
+          "oklch(15% 0.0254 123.70)",
+          "oklch(26% 0.0559 123.70)",
+          "oklch(38% 0.0813 123.70)",
+          "oklch(49% 0.1016 123.70)",
+          "oklch(61% 0.1016 123.70)",
+          "oklch(72% 0.0813 123.70)",
+          "oklch(84% 0.0457 123.70)",
+          "oklch(95% 0.0102 123.70)"
+        ]
+      },
+      "coffee-selection": {
+        "role": "secondary",
+        "displayName": "Coffee Selection",
+        "tonalRamp": [
+          "oklch(15% 0.0159 109.50)",
+          "oklch(26% 0.0351 109.50)",
+          "oklch(38% 0.0510 109.50)",
+          "oklch(49% 0.0637 109.50)",
+          "oklch(61% 0.0637 109.50)",
+          "oklch(72% 0.0510 109.50)",
+          "oklch(84% 0.0287 109.50)",
+          "oklch(95% 0.0064 109.50)"
+        ]
+      },
+      "coffee-selection-hover": {
+        "role": "secondary",
+        "displayName": "Coffee Selection Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0207 111.66)",
+          "oklch(26% 0.0455 111.66)",
+          "oklch(38% 0.0662 111.66)",
+          "oklch(49% 0.0828 111.66)",
+          "oklch(61% 0.0828 111.66)",
+          "oklch(72% 0.0662 111.66)",
+          "oklch(84% 0.0373 111.66)",
+          "oklch(95% 0.0083 111.66)"
+        ]
+      },
+      "coffee-detail": {
+        "role": "neutral",
+        "displayName": "Coffee Detail",
+        "tonalRamp": [
+          "oklch(15% 0.0034 115.84)",
+          "oklch(26% 0.0074 115.84)",
+          "oklch(38% 0.0107 115.84)",
+          "oklch(49% 0.0134 115.84)",
+          "oklch(61% 0.0134 115.84)",
+          "oklch(72% 0.0107 115.84)",
+          "oklch(84% 0.0060 115.84)",
+          "oklch(95% 0.0013 115.84)"
+        ]
+      },
+      "clinic-ground": {
+        "role": "neutral",
+        "displayName": "Clinic Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0017 115.70)",
+          "oklch(26% 0.0037 115.70)",
+          "oklch(38% 0.0053 115.70)",
+          "oklch(49% 0.0067 115.70)",
+          "oklch(61% 0.0067 115.70)",
+          "oklch(72% 0.0053 115.70)",
+          "oklch(84% 0.0030 115.70)",
+          "oklch(95% 0.0007 115.70)"
+        ]
+      },
+      "clinic-ink": {
+        "role": "neutral",
+        "displayName": "Clinic Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0101 162.30)",
+          "oklch(26% 0.0223 162.30)",
+          "oklch(38% 0.0324 162.30)",
+          "oklch(49% 0.0406 162.30)",
+          "oklch(61% 0.0406 162.30)",
+          "oklch(72% 0.0324 162.30)",
+          "oklch(84% 0.0183 162.30)",
+          "oklch(95% 0.0041 162.30)"
+        ]
+      },
+      "clinic-accent": {
+        "role": "primary",
+        "displayName": "Clinic Accent",
+        "tonalRamp": [
+          "oklch(15% 0.0135 161.66)",
+          "oklch(26% 0.0297 161.66)",
+          "oklch(38% 0.0432 161.66)",
+          "oklch(49% 0.0540 161.66)",
+          "oklch(61% 0.0540 161.66)",
+          "oklch(72% 0.0432 161.66)",
+          "oklch(84% 0.0243 161.66)",
+          "oklch(95% 0.0054 161.66)"
+        ]
+      },
+      "clinic-hover": {
+        "role": "neutral",
+        "displayName": "Clinic Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0180 155.03)",
+          "oklch(26% 0.0397 155.03)",
+          "oklch(38% 0.0577 155.03)",
+          "oklch(49% 0.0721 155.03)",
+          "oklch(61% 0.0721 155.03)",
+          "oklch(72% 0.0577 155.03)",
+          "oklch(84% 0.0324 155.03)",
+          "oklch(95% 0.0072 155.03)"
+        ]
+      },
+      "clinic-line": {
+        "role": "neutral",
+        "displayName": "Clinic Line",
+        "tonalRamp": [
+          "oklch(15% 0.0052 131.47)",
+          "oklch(26% 0.0114 131.47)",
+          "oklch(38% 0.0166 131.47)",
+          "oklch(49% 0.0207 131.47)",
+          "oklch(61% 0.0207 131.47)",
+          "oklch(72% 0.0166 131.47)",
+          "oklch(84% 0.0093 131.47)",
+          "oklch(95% 0.0021 131.47)"
+        ]
+      },
+      "clinic-muted": {
+        "role": "neutral",
+        "displayName": "Clinic Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0084 145.06)",
+          "oklch(26% 0.0185 145.06)",
+          "oklch(38% 0.0269 145.06)",
+          "oklch(49% 0.0336 145.06)",
+          "oklch(61% 0.0336 145.06)",
+          "oklch(72% 0.0269 145.06)",
+          "oklch(84% 0.0151 145.06)",
+          "oklch(95% 0.0034 145.06)"
+        ]
+      },
+      "clinic-focus": {
+        "role": "neutral",
+        "displayName": "Clinic Focus",
+        "tonalRamp": [
+          "oklch(15% 0.0242 126.21)",
+          "oklch(26% 0.0532 126.21)",
+          "oklch(38% 0.0774 126.21)",
+          "oklch(49% 0.0967 126.21)",
+          "oklch(61% 0.0967 126.21)",
+          "oklch(72% 0.0774 126.21)",
+          "oklch(84% 0.0435 126.21)",
+          "oklch(95% 0.0097 126.21)"
+        ]
+      },
+      "clinic-message": {
+        "role": "neutral",
+        "displayName": "Clinic Message",
+        "tonalRamp": [
+          "oklch(15% 0.0032 126.37)",
+          "oklch(26% 0.0070 126.37)",
+          "oklch(38% 0.0101 126.37)",
+          "oklch(49% 0.0126 126.37)",
+          "oklch(61% 0.0126 126.37)",
+          "oklch(72% 0.0101 126.37)",
+          "oklch(84% 0.0057 126.37)",
+          "oklch(95% 0.0013 126.37)"
+        ]
+      },
+      "clinic-forest": {
+        "role": "neutral",
+        "displayName": "Clinic Forest",
+        "tonalRamp": [
+          "oklch(15% 0.0106 166.23)",
+          "oklch(26% 0.0232 166.23)",
+          "oklch(38% 0.0338 166.23)",
+          "oklch(49% 0.0422 166.23)",
+          "oklch(61% 0.0422 166.23)",
+          "oklch(72% 0.0338 166.23)",
+          "oklch(84% 0.0190 166.23)",
+          "oklch(95% 0.0042 166.23)"
+        ]
+      },
+      "clinic-hero-text": {
+        "role": "neutral",
+        "displayName": "Clinic Hero Text",
+        "tonalRamp": [
+          "oklch(15% 0.0043 103.15)",
+          "oklch(26% 0.0094 103.15)",
+          "oklch(38% 0.0137 103.15)",
+          "oklch(49% 0.0172 103.15)",
+          "oklch(61% 0.0172 103.15)",
+          "oklch(72% 0.0137 103.15)",
+          "oklch(84% 0.0077 103.15)",
+          "oklch(95% 0.0017 103.15)"
+        ]
+      },
+      "clinic-chat": {
+        "role": "neutral",
+        "displayName": "Clinic Chat",
+        "tonalRamp": [
+          "oklch(15% 0.0042 125.29)",
+          "oklch(26% 0.0092 125.29)",
+          "oklch(38% 0.0134 125.29)",
+          "oklch(49% 0.0168 125.29)",
+          "oklch(61% 0.0168 125.29)",
+          "oklch(72% 0.0134 125.29)",
+          "oklch(84% 0.0076 125.29)",
+          "oklch(95% 0.0017 125.29)"
+        ]
+      },
+      "flow-ground": {
+        "role": "neutral",
+        "displayName": "Flow Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0014 274.97)",
+          "oklch(26% 0.0030 274.97)",
+          "oklch(38% 0.0043 274.97)",
+          "oklch(49% 0.0054 274.97)",
+          "oklch(61% 0.0054 274.97)",
+          "oklch(72% 0.0043 274.97)",
+          "oklch(84% 0.0024 274.97)",
+          "oklch(95% 0.0005 274.97)"
+        ]
+      },
+      "flow-ink": {
+        "role": "neutral",
+        "displayName": "Flow Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0102 267.78)",
+          "oklch(26% 0.0223 267.78)",
+          "oklch(38% 0.0325 267.78)",
+          "oklch(49% 0.0406 267.78)",
+          "oklch(61% 0.0406 267.78)",
+          "oklch(72% 0.0325 267.78)",
+          "oklch(84% 0.0183 267.78)",
+          "oklch(95% 0.0041 267.78)"
+        ]
+      },
+      "flow-muted": {
+        "role": "neutral",
+        "displayName": "Flow Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0084 266.08)",
+          "oklch(26% 0.0186 266.08)",
+          "oklch(38% 0.0270 266.08)",
+          "oklch(49% 0.0338 266.08)",
+          "oklch(61% 0.0338 266.08)",
+          "oklch(72% 0.0270 266.08)",
+          "oklch(84% 0.0152 266.08)",
+          "oklch(95% 0.0034 266.08)"
+        ]
+      },
+      "flow-accent": {
+        "role": "primary",
+        "displayName": "Flow Accent",
+        "tonalRamp": [
+          "oklch(15% 0.0516 265.70)",
+          "oklch(26% 0.1136 265.70)",
+          "oklch(38% 0.1653 265.70)",
+          "oklch(49% 0.2066 265.70)",
+          "oklch(61% 0.2066 265.70)",
+          "oklch(72% 0.1653 265.70)",
+          "oklch(84% 0.0930 265.70)",
+          "oklch(95% 0.0207 265.70)"
+        ]
+      },
+      "flow-hover": {
+        "role": "neutral",
+        "displayName": "Flow Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0455 265.77)",
+          "oklch(26% 0.1002 265.77)",
+          "oklch(38% 0.1457 265.77)",
+          "oklch(49% 0.1822 265.77)",
+          "oklch(61% 0.1822 265.77)",
+          "oklch(72% 0.1457 265.77)",
+          "oklch(84% 0.0820 265.77)",
+          "oklch(95% 0.0182 265.77)"
+        ]
+      },
+      "flow-line": {
+        "role": "neutral",
+        "displayName": "Flow Line",
+        "tonalRamp": [
+          "oklch(15% 0.0037 264.49)",
+          "oklch(26% 0.0081 264.49)",
+          "oklch(38% 0.0117 264.49)",
+          "oklch(49% 0.0146 264.49)",
+          "oklch(61% 0.0146 264.49)",
+          "oklch(72% 0.0117 264.49)",
+          "oklch(84% 0.0066 264.49)",
+          "oklch(95% 0.0015 264.49)"
+        ]
+      },
+      "flow-tint": {
+        "role": "neutral",
+        "displayName": "Flow Tint",
+        "tonalRamp": [
+          "oklch(15% 0.0038 269.98)",
+          "oklch(26% 0.0084 269.98)",
+          "oklch(38% 0.0123 269.98)",
+          "oklch(49% 0.0154 269.98)",
+          "oklch(61% 0.0154 269.98)",
+          "oklch(72% 0.0123 269.98)",
+          "oklch(84% 0.0069 269.98)",
+          "oklch(95% 0.0015 269.98)"
+        ]
+      },
+      "flow-message": {
+        "role": "neutral",
+        "displayName": "Flow Message",
+        "tonalRamp": [
+          "oklch(15% 0.0018 268.55)",
+          "oklch(26% 0.0039 268.55)",
+          "oklch(38% 0.0056 268.55)",
+          "oklch(49% 0.0070 268.55)",
+          "oklch(61% 0.0070 268.55)",
+          "oklch(72% 0.0056 268.55)",
+          "oklch(84% 0.0032 268.55)",
+          "oklch(95% 0.0007 268.55)"
+        ]
+      },
+      "flow-row-selected": {
+        "role": "neutral",
+        "displayName": "Flow Row Selected",
+        "tonalRamp": [
+          "oklch(15% 0.0046 269.09)",
+          "oklch(26% 0.0100 269.09)",
+          "oklch(38% 0.0146 269.09)",
+          "oklch(49% 0.0182 269.09)",
+          "oklch(61% 0.0182 269.09)",
+          "oklch(72% 0.0146 269.09)",
+          "oklch(84% 0.0082 269.09)",
+          "oklch(95% 0.0018 269.09)"
+        ]
+      },
+      "flow-row-hover": {
+        "role": "neutral",
+        "displayName": "Flow Row Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0021 271.33)",
+          "oklch(26% 0.0045 271.33)",
+          "oklch(38% 0.0066 271.33)",
+          "oklch(49% 0.0083 271.33)",
+          "oklch(61% 0.0083 271.33)",
+          "oklch(72% 0.0066 271.33)",
+          "oklch(84% 0.0037 271.33)",
+          "oklch(95% 0.0008 271.33)"
+        ]
+      },
+      "flow-new-ink": {
+        "role": "secondary",
+        "displayName": "Flow New Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0268 58.86)",
+          "oklch(26% 0.0590 58.86)",
+          "oklch(38% 0.0858 58.86)",
+          "oklch(49% 0.1072 58.86)",
+          "oklch(61% 0.1072 58.86)",
+          "oklch(72% 0.0858 58.86)",
+          "oklch(84% 0.0483 58.86)",
+          "oklch(95% 0.0107 58.86)"
+        ]
+      },
+      "flow-new-bg": {
+        "role": "secondary",
+        "displayName": "Flow New Bg",
+        "tonalRamp": [
+          "oklch(15% 0.0082 79.28)",
+          "oklch(26% 0.0180 79.28)",
+          "oklch(38% 0.0261 79.28)",
+          "oklch(49% 0.0326 79.28)",
+          "oklch(61% 0.0326 79.28)",
+          "oklch(72% 0.0261 79.28)",
+          "oklch(84% 0.0147 79.28)",
+          "oklch(95% 0.0033 79.28)"
+        ]
+      },
+      "flow-work-bg": {
+        "role": "secondary",
+        "displayName": "Flow Work Bg",
+        "tonalRamp": [
+          "oklch(15% 0.0062 273.50)",
+          "oklch(26% 0.0137 273.50)",
+          "oklch(38% 0.0199 273.50)",
+          "oklch(49% 0.0248 273.50)",
+          "oklch(61% 0.0248 273.50)",
+          "oklch(72% 0.0199 273.50)",
+          "oklch(84% 0.0112 273.50)",
+          "oklch(95% 0.0025 273.50)"
+        ]
+      },
+      "flow-done-ink": {
+        "role": "secondary",
+        "displayName": "Flow Done Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0200 158.93)",
+          "oklch(26% 0.0440 158.93)",
+          "oklch(38% 0.0640 158.93)",
+          "oklch(49% 0.0800 158.93)",
+          "oklch(61% 0.0800 158.93)",
+          "oklch(72% 0.0640 158.93)",
+          "oklch(84% 0.0360 158.93)",
+          "oklch(95% 0.0080 158.93)"
+        ]
+      },
+      "flow-done-bg": {
+        "role": "secondary",
+        "displayName": "Flow Done Bg",
+        "tonalRamp": [
+          "oklch(15% 0.0044 153.56)",
+          "oklch(26% 0.0096 153.56)",
+          "oklch(38% 0.0139 153.56)",
+          "oklch(49% 0.0174 153.56)",
+          "oklch(61% 0.0174 153.56)",
+          "oklch(72% 0.0139 153.56)",
+          "oklch(84% 0.0078 153.56)",
+          "oklch(95% 0.0017 153.56)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "coffee-display": {
+        "displayName": "Coffee Display",
+        "purpose": "Scoped coffee role extracted from the shared or local stylesheet."
+      },
+      "clinic-display": {
+        "displayName": "Clinic Display",
+        "purpose": "Scoped clinic role extracted from the shared or local stylesheet."
+      },
+      "clinic-title": {
+        "displayName": "Clinic Title",
+        "purpose": "Scoped clinic role extracted from the shared or local stylesheet."
+      },
+      "flow-headline": {
+        "displayName": "Flow Headline",
+        "purpose": "Scoped flow role extracted from the shared or local stylesheet."
+      },
+      "shared-headline": {
+        "displayName": "Shared Headline",
+        "purpose": "Scoped shared role extracted from the shared or local stylesheet."
+      },
+      "shared-title": {
+        "displayName": "Shared Title",
+        "purpose": "Scoped shared role extracted from the shared or local stylesheet."
+      },
+      "shared-body": {
+        "displayName": "Shared Body",
+        "purpose": "Scoped shared role extracted from the shared or local stylesheet."
+      },
+      "flow-body": {
+        "displayName": "Flow Body",
+        "purpose": "Scoped flow role extracted from the shared or local stylesheet."
+      },
+      "shared-button": {
+        "displayName": "Shared Button",
+        "purpose": "Scoped shared role extracted from the shared or local stylesheet."
+      },
+      "shared-field": {
+        "displayName": "Shared Field",
+        "purpose": "Scoped shared role extracted from the shared or local stylesheet."
+      },
+      "flow-label": {
+        "displayName": "Flow Label",
+        "purpose": "Scoped flow role extracted from the shared or local stylesheet."
+      }
+    },
+    "shadows": [
+      {
+        "name": "dialog",
+        "value": "0 24px 90px #1e2a2530",
+        "purpose": "Native dialog depth."
+      },
+      {
+        "name": "toast",
+        "value": "0 12px 35px #17251f20",
+        "purpose": "Transient toast feedback."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-panel",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Panel, visit, workflow and view entry."
+      },
+      {
+        "name": "state-transition",
+        "value": ".2s",
+        "purpose": "Shared button and selected-option feedback."
+      },
+      {
+        "name": "journal-transition",
+        "value": ".18s",
+        "purpose": "Workspace rows and navigation."
+      },
+      {
+        "name": "photo-transition",
+        "value": ".6s",
+        "purpose": "Coffee image scale."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}",
+        "purpose": "Remove animation, transitions and smooth scrolling."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "370px"
+      },
+      {
+        "name": "coffee-stack",
+        "value": "600px"
+      },
+      {
+        "name": "public-mobile",
+        "value": "720px"
+      },
+      {
+        "name": "workspace-mobile",
+        "value": "760px"
+      },
+      {
+        "name": "coffee-catalog",
+        "value": "800px"
+      },
+      {
+        "name": "shared-tablet",
+        "value": "1000px"
+      },
+      {
+        "name": "coffee-tablet",
+        "value": "1100px"
+      },
+      {
+        "name": "clinic-workspace-tablet",
+        "value": "1200px"
+      },
+      {
+        "name": "workspace-wide",
+        "value": "1600px"
+      },
+      {
+        "name": "public-wide",
+        "value": "1700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Coffee Primary Button",
+      "kind": "button",
+      "refersTo": "coffee-button-primary",
+      "description": "Scoped primary action; fallback colors preserve this surface in isolation.",
+      "html": "<button class=\"ds-coffee-primary\">Добавить за 240 ₽</button>",
+      "css": ".ds-coffee-primary{font-family:Golos,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:13px 22px;border:1px solid transparent;border-radius:8px;font-size:14px;font-weight:600;line-height:1.4;cursor:pointer;transition:background .2s,transform .2s,border-color .2s;background:var(--accent,#25342a);color:var(--surface,#fff)}.ds-coffee-primary:hover{background:var(--hover,#415443)}.ds-coffee-primary:focus-visible{outline:3px solid var(--focus,#6c823a);outline-offset:4px}.ds-coffee-primary:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-coffee-primary{transition:none}}"
+    },
+    {
+      "name": "Clinic Primary Button",
+      "kind": "button",
+      "refersTo": "clinic-button-primary",
+      "description": "Scoped primary action; fallback colors preserve this surface in isolation.",
+      "html": "<button class=\"ds-clinic-primary\">Посмотреть визит</button>",
+      "css": ".ds-clinic-primary{font-family:Golos,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:13px 22px;border:1px solid transparent;border-radius:8px;font-size:14px;font-weight:600;line-height:1.4;cursor:pointer;transition:background .2s,transform .2s,border-color .2s;background:var(--accent,#244a38);color:var(--surface,#fff)}.ds-clinic-primary:hover{background:var(--hover,#376749)}.ds-clinic-primary:focus-visible{outline:3px solid var(--focus,#859f5c);outline-offset:4px}.ds-clinic-primary:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-clinic-primary{transition:none}}"
+    },
+    {
+      "name": "Flow Primary Button",
+      "kind": "button",
+      "refersTo": "flow-button-primary",
+      "description": "Scoped primary action; fallback colors preserve this surface in isolation.",
+      "html": "<button class=\"ds-flow-primary\">Новая заявка</button>",
+      "css": ".ds-flow-primary{font-family:Golos,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:13px 22px;border:1px solid transparent;border-radius:8px;font-size:14px;font-weight:600;line-height:1.4;cursor:pointer;transition:background .2s,transform .2s,border-color .2s;background:var(--accent,#244bce);color:var(--surface,#fff)}.ds-flow-primary:hover{background:var(--hover,#1d3eae)}.ds-flow-primary:focus-visible{outline:3px solid var(--focus,#244bce);outline-offset:4px}.ds-flow-primary:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-flow-primary{transition:none}}"
+    },
+    {
+      "name": "Shared Secondary Button",
+      "kind": "button",
+      "refersTo": "shared-button-secondary",
+      "description": "Outline action; inherits the active surface.",
+      "html": "<button class=\"ds-secondary\">Скопировать</button>",
+      "css": ".ds-secondary{font-family:Golos,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:13px 22px;border:1px solid transparent;border-radius:8px;font-size:14px;font-weight:600;line-height:1.4;cursor:pointer;transition:background .2s,transform .2s,border-color .2s;background:transparent;border-color:var(--line,#d9ddd5);color:var(--ink,#242922)}.ds-secondary:hover{background:var(--tint,#f0f2ec)}.ds-secondary:focus-visible{outline:3px solid var(--focus,#244bce);outline-offset:4px;}.ds-secondary:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
+    },
+    {
+      "name": "Shared Text Field",
+      "kind": "input",
+      "refersTo": "shared-field",
+      "description": "Labeled field; border and focus inherit the surface.",
+      "html": "<label class=\"ds-field\">Имя или проект<input placeholder=\"Например, мастерская керамики\"></label>",
+      "css": ".ds-field{font-family:Golos,Arial,sans-serif;display:grid;gap:8px;font-size:14px;font-weight:600;color:var(--ink,#20283d)}.ds-field input{font-family:Golos,Arial,sans-serif;min-width:0;padding:13px 14px;border:1px solid var(--line,#dce1eb);border-radius:8px;background:var(--surface,#fff);color:inherit;font-size:15px;font-weight:400;line-height:1.5}.ds-field input::placeholder{color:var(--muted,#5c6579)}.ds-field input:focus{border-color:var(--focus,#244bce)}.ds-field input:focus-visible{outline:3px solid var(--focus,#244bce);outline-offset:4px;}"
+    },
+    {
+      "name": "Workspace Navigation",
+      "kind": "nav",
+      "refersTo": "flow-navigation",
+      "description": "Cobalt navigation with written current-page state.",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Рабочие разделы\"><a href=\"#requests\" aria-current=\"page\">Заявки</a><a href=\"#brief\">Бриф</a></nav>",
+      "css": ".ds-rail{font-family:Golos,Arial,sans-serif;display:grid;gap:7px;padding:20px;background:var(--accent,#244bce);color:#fff}.ds-rail a{display:flex;padding:13px 12px;border-radius:8px;font-size:14px;color:inherit;text-decoration:none;transition:background .18s}.ds-rail a:hover{background:#365bd3}.ds-rail a[aria-current=page]{background:#fff;color:var(--accent,#244bce)}.ds-rail a:focus-visible{outline:3px solid var(--focus,#244bce);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-rail a{transition:none}}"
+    },
+    {
+      "name": "Workspace State",
+      "kind": "chip",
+      "refersTo": "flow-state-new",
+      "description": "Noninteractive state label: word and dot accompany color.",
+      "html": "<span class=\"ds-state\">Новая</span>",
+      "css": ".ds-state{font-family:Golos,Arial,sans-serif;display:inline-flex;align-items:center;gap:6px;width:max-content;border-radius:5px;padding:4px 7px;font-size:12px;font-weight:600;line-height:1.4;background:#fff1db;color:#8a4d10}.ds-state::before{content:\"\";width:5px;height:5px;border-radius:50%;background:currentColor}"
+    },
+    {
+      "name": "Workspace Request Row",
+      "kind": "card",
+      "refersTo": "flow-request-row",
+      "description": "Selectable journal entry; actual event handling lives in flow/app.js.",
+      "html": "<button class=\"ds-row\" aria-pressed=\"true\"><span><strong>Мастерская керамики</strong><span class=\"ds-excerpt\">Нужен сайт с каталогом.</span></span><span class=\"ds-channel\">Сайт</span><span class=\"ds-row-state\">В работе</span></button>",
+      "css": ".ds-row{font-family:Golos,Arial,sans-serif;display:grid;grid-template-columns:minmax(0,1fr) 82px 85px;gap:12px;width:100%;padding:19px 20px;background:var(--surface,#fff);border:0;border-bottom:1px solid var(--line,#dce1eb);text-align:left;color:var(--ink,#20283d);cursor:pointer;transition:background .18s}.ds-row:hover{background:#f7f9ff}.ds-row[aria-pressed=true]{background:#edf2ff}.ds-row:focus-visible{outline:3px solid var(--focus,#244bce);outline-offset:4px;}.ds-row strong{display:block;font-size:13px;font-weight:600;line-height:1.5}.ds-excerpt{display:block;font-size:12px;color:var(--muted,#5c6579);line-height:1.65;margin-top:4px;overflow-wrap:anywhere}.ds-channel{font-size:12px;color:var(--muted,#5c6579);padding-top:2px}.ds-row-state{font-size:12px;border-radius:5px;padding:4px 7px;background:#e8edff;color:#244bce;align-self:start}@media(prefers-reduced-motion:reduce){.ds-row{transition:none}}"
+    },
+    {
+      "name": "Coffee Radio Segment",
+      "kind": "custom",
+      "refersTo": "coffee-segment",
+      "description": "Keyboard reachable milk option with visible checked and focus states.",
+      "html": "<label class=\"ds-segment\"><input type=\"radio\" name=\"ds-milk\" checked><span>Обычное</span></label>",
+      "css": ".ds-segment{font-family:Golos,Arial,sans-serif;display:block;position:relative;cursor:pointer;max-width:220px}.ds-segment input{position:absolute;opacity:0;width:1px;height:1px}.ds-segment span{display:flex;justify-content:center;padding:13px 12px;border:1px solid var(--line,#d9ddd5);border-radius:8px;font-size:14px;transition:background .2s}.ds-segment input:checked+span{background:var(--accent,#25342a);border-color:var(--accent,#25342a);color:#fff}.ds-segment input:focus-visible+span{outline:3px solid var(--focus,#6c823a);outline-offset:3px}@media(prefers-reduced-motion:reduce){.ds-segment span{transition:none}}"
+    },
+    {
+      "name": "Clinic Time Choice",
+      "kind": "custom",
+      "refersTo": "clinic-time",
+      "description": "Compact appointment radio with disabled and checked treatments.",
+      "html": "<label class=\"ds-time\"><input type=\"radio\" name=\"ds-time\" checked><span>10:00</span></label>",
+      "css": ".ds-time{font-family:Golos,Arial,sans-serif;display:block;position:relative;cursor:pointer;max-width:100px}.ds-time input{position:absolute;width:1px;height:1px;opacity:0}.ds-time span{display:grid;place-items:center;border:1px solid #d7dfd1;padding:10px 4px;border-radius:7px;font-size:12px;min-height:40px;transition:background .2s,border-color .2s}.ds-time input:checked+span{background:var(--accent,#244a38);border-color:var(--accent,#244a38);color:#fff}.ds-time input:disabled+span{opacity:.35;cursor:not-allowed}.ds-time input:focus-visible+span{outline:3px solid var(--focus,#859f5c);outline-offset:3px}@media(prefers-reduced-motion:reduce){.ds-time span{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Three Working Worlds",
+    "overview": "Three working worlds share a quiet control language, while their palettes, type hierarchy and spatial density remain explicitly scoped. Тихо is a photographic product index on chalk white with pale yellow assistance. Линия is a forest and limestone appointment desk with Prata headings. Поток is a cobalt operations journal with compact Golos text and status-driven color.\n\nThis record describes the finished HTML/CSS, not a universal theme to apply across all three sites. The interfaces expose local demonstrations with visible limitations. Photography provenance remains in assets/v3-image-provenance.json; this document does not replace that record.",
+    "keyCharacteristics": [
+      "Three scoped palettes; one shared form and focus vocabulary.",
+      "Photography carries the coffee and clinic atmosphere; tables and state carry the workspace.",
+      "Flat panels, restrained borders and functional motion.",
+      "Local demonstration disclosures remain close to their actions."
+    ],
+    "rules": [
+      {
+        "name": "The Scoped World Rule",
+        "body": "Use coffee, clinic or flow tokens only inside their corresponding surface. Shared controls inherit that surface’s CSS custom properties.",
+        "section": "colors"
+      },
+      {
+        "name": "The Status Meaning Rule",
+        "body": "In Поток, amber means new, cobalt means in progress and green means complete; always retain the written status.",
+        "section": "colors"
+      },
+      {
+        "name": "The Display Scope Rule",
+        "body": "Prata belongs to Линия’s identity and principal headings. Coffee and workspace headings use Golos.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Resting content panels rely on background and borders. Reserve the observed shadows for the dialog and toast.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the three surface scopes and shared control inheritance.",
+      "Do retain visible keyboard focus, semantic labels, status text and reduced-motion handling.",
+      "Do use actual photographic assets for the coffee and clinic surfaces and retain their provenance record.",
+      "Do keep demonstration limitations beside ordering, visit planning and request actions."
+    ],
+    "donts": [
+      "Don't migrate clinic display typography or workspace status colors into the other identities.",
+      "Don't replace the coffee photography with CSS food illustrations or add a ticker.",
+      "Don't remove text from status chips or make color the only selected-state cue.",
+      "Don't describe local assistant, cart or visit actions as live external services."
+    ]
+  }
+}
