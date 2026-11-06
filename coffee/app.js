@@ -1,165 +1,25 @@
-import { products, priceFor, telegram } from '/assets/data.js';
-import { money, downloadText, copyText, wireDialog } from '/assets/ui.js';
+import { products,priceFor } from '/assets/data.js';
+import { icon } from '/assets/icons.js';
+import { money,behavior,downloadText,copyText,notify,wireDialog } from '/assets/ui.js';
+import { mountAssistant } from '/assets/assistant.js';
 
-const productGrid = document.querySelector('#products');
-const cartDialog = document.querySelector('#cart');
-const cartItems = document.querySelector('#cart-items');
-const cartResult = document.querySelector('#cart-result');
-let cart = [];
-let toastTimer;
-
-try {
-  const saved = JSON.parse(localStorage.getItem('tiho-cart-v2') || '[]');
-  if (Array.isArray(saved)) cart = saved.slice(0, 40).flatMap(line => {
-    const product = products.find(item => item.id === line.id);
-    if (!product || !Number.isInteger(line.quantity) || line.quantity < 1) return [];
-    return [{ id: product.id, size: line.size === '350' ? '350' : '250', milk: line.milk === 'oat' ? 'oat' : 'regular', quantity: Math.min(20, line.quantity) }];
-  });
-} catch { /* The shop also works when browser storage is disabled. */ }
-
-function notify(message) {
-  const toast = document.querySelector('#toast');
-  toast.textContent = message;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { toast.textContent = ''; }, 2600);
-}
-
-function artwork(product) {
-  if (product.art === 'cup') return '<div class="cup" aria-hidden="true"><span class="cup-mark">тихо</span><i class="steam"></i></div>';
-  if (product.art === 'glass') return '<div class="glass" aria-hidden="true"></div>';
-  return `<span class="pastry" aria-hidden="true">${product.art}</span>`;
-}
-
-function showProducts(category) {
-  productGrid.innerHTML = products.filter(product => product.category === category).map((product, index) => `
-    <article class="product product-enter">
-      <button class="product-art ${category === 'bakery' ? 'bakery' : ''}" data-configure="${product.id}" aria-label="Подробнее: ${product.name}">
-        <span class="product-number">0${index + 1}</span>${artwork(product)}<span class="art-hint">Рассмотреть ↗</span>
-      </button>
-      <div class="product-top"><h3>${product.name}</h3><span class="product-price">${money(product.price)}</span></div>
-      <p>${product.note}</p>
-      <button class="add-product" data-configure="${product.id}" aria-label="${product.customizable ? 'Настроить' : 'Добавить'} ${product.name}">${product.customizable ? 'По вашему вкусу' : 'Добавить в заказ'} <span>＋</span></button>
-    </article>`).join('');
-}
-
-const customizer = document.createElement('dialog');
-customizer.className = 'product-dialog';
-customizer.setAttribute('aria-labelledby', 'customizer-title');
-customizer.innerHTML = `
-  <div class="dialog-body">
-    <div class="dialog-head"><span class="eyebrow">Ваш маленький ритуал</span><button class="close" aria-label="Закрыть настройку напитка">×</button></div>
-    <div class="customizer-art" aria-hidden="true"></div><h2 id="customizer-title"></h2><p id="customizer-note"></p>
-    <form id="customizer-form">
-      <div class="customizer-options">
-        <fieldset><legend>Объём</legend><div class="segmented"><label><input type="radio" name="size" value="250" checked><span>250 мл</span></label><label><input type="radio" name="size" value="350"><span>350 мл <small>+50 ₽</small></span></label></div></fieldset>
-        <fieldset><legend>Молоко</legend><div class="segmented"><label><input type="radio" name="milk" value="regular" checked><span>Обычное</span></label><label><input type="radio" name="milk" value="oat"><span>Овсяное <small>+40 ₽</small></span></label></div></fieldset>
-      </div>
-      <button class="pill primary full" id="customizer-add" type="submit"></button>
-    </form>
-  </div>`;
-document.body.append(customizer);
-wireDialog(customizer);
-wireDialog(cartDialog);
-let selectedProduct;
-const customizeForm = customizer.querySelector('form');
-
-function updateCustomization() {
-  const data = new FormData(customizeForm);
-  customizer.querySelector('#customizer-add').textContent = `Добавить в заказ · ${money(priceFor(selectedProduct, data.get('size'), data.get('milk')))}`;
-}
-
-function configure(id, milk = 'regular') {
-  selectedProduct = products.find(product => product.id === id);
-  if (!selectedProduct) return;
-  customizeForm.reset();
-  customizeForm.elements.milk.value = milk === 'oat' ? 'oat' : 'regular';
-  customizer.querySelector('#customizer-title').textContent = selectedProduct.name;
-  customizer.querySelector('#customizer-note').textContent = selectedProduct.flavor || selectedProduct.note;
-  customizer.querySelector('.customizer-art').innerHTML = artwork(selectedProduct);
-  customizer.querySelector('.customizer-options').hidden = !selectedProduct.customizable;
-  updateCustomization();
-  customizer.showModal();
-}
-
-customizeForm.addEventListener('change', updateCustomization);
-customizeForm.addEventListener('submit', event => {
-  event.preventDefault();
-  const data = new FormData(customizeForm);
-  const line = { id: selectedProduct.id, size: selectedProduct.customizable ? data.get('size') : '250', milk: selectedProduct.customizable ? data.get('milk') : 'regular', quantity: 1 };
-  const existing = cart.find(item => item.id === line.id && item.size === line.size && item.milk === line.milk);
-  if (existing) existing.quantity = Math.min(20, existing.quantity + 1);
-  else cart.push(line);
-  customizer.close();
-  cartResult.replaceChildren();
-  updateCart();
-  notify(`${selectedProduct.name} — в вашем заказе`);
-  document.querySelector('#cart-count').animate([{ transform: 'scale(1)' }, { transform: 'scale(1.5)' }, { transform: 'scale(1)' }], { duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 350 });
-});
-
-function total() {
-  return cart.reduce((sum, line) => sum + priceFor(products.find(product => product.id === line.id), line.size, line.milk) * line.quantity, 0);
-}
-
-function describe(line) {
-  const product = products.find(item => item.id === line.id);
-  return product.customizable ? `${line.size} мл · ${line.milk === 'oat' ? 'овсяное молоко' : 'обычное молоко'}` : product.category === 'bakery' ? 'Свежая выпечка' : 'Без изменений';
-}
-
-function receipt() {
-  return ['ТИХО · ДЕМОНСТРАЦИОННЫЙ ЧЕК', '', ...cart.map(line => {
-    const product = products.find(item => item.id === line.id);
-    return `${product.name} (${describe(line)}) × ${line.quantity} — ${money(priceFor(product, line.size, line.milk) * line.quantity)}`;
-  }), '', `Итого: ${money(total())}`, 'Это демонстрация сайта. Заказ не отправлен, оплата не списывается.', '', 'Нужен такой сайт? https://t.me/fle3n'].join('\n');
-}
-
-function updateCart(focus) {
-  try { localStorage.setItem('tiho-cart-v2', JSON.stringify(cart)); } catch {}
-  const count = cart.reduce((sum, line) => sum + line.quantity, 0);
-  document.querySelector('#cart-count').textContent = count;
-  document.querySelector('#mobile-cart-count')?.replaceChildren(document.createTextNode(String(count)));
-  cartItems.innerHTML = count ? cart.map((line, index) => {
-    const product = products.find(item => item.id === line.id);
-    return `<div class="cart-row"><div><strong>${product.name}</strong><small>${describe(line)}</small><small>${money(priceFor(product, line.size, line.milk) * line.quantity)}</small></div><div class="cart-controls"><button data-line="${index}" data-delta="-1" aria-label="Убрать один ${product.name}">−</button><span>${line.quantity}</span><button data-line="${index}" data-delta="1" aria-label="Добавить один ${product.name}" ${line.quantity >= 20 ? 'disabled' : ''}>+</button></div></div>`;
-  }).join('') : '<div class="cart-empty"><span aria-hidden="true">☕</span><h3>Здесь будет ваша пауза.</h3><p>Начните с любимого напитка или попросите помощника подобрать новый.</p><button class="pill primary" id="empty-choose">Перейти к меню ↗</button></div>';
-  document.querySelector('#cart-total').textContent = money(total());
-  document.querySelector('#checkout').disabled = !count;
-  if (focus) cartItems.querySelector(`[data-line="${Math.min(focus.line, cart.length - 1)}"][data-delta="${focus.delta}"]`)?.focus();
-}
-
-document.querySelector('.filters').addEventListener('click', event => {
-  const button = event.target.closest('[data-filter]');
-  if (!button) return;
-  document.querySelectorAll('[data-filter]').forEach(item => {
-    item.classList.toggle('active', item === button);
-    item.setAttribute('aria-pressed', String(item === button));
-  });
-  showProducts(button.dataset.filter);
-});
-productGrid.addEventListener('click', event => {
-  const button = event.target.closest('[data-configure]');
-  if (button) configure(button.dataset.configure);
-});
-document.querySelector('#cart-open').addEventListener('click', () => { updateCart(); cartDialog.showModal(); });
-document.addEventListener('portfolio:cart', () => { updateCart(); cartDialog.showModal(); });
-document.addEventListener('portfolio:product', event => configure(event.detail.id, event.detail.milk));
-cartItems.addEventListener('click', event => {
-  if (event.target.closest('#empty-choose')) { cartDialog.close(); document.querySelector('#menu').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); return; }
-  const button = event.target.closest('[data-line]');
-  if (!button) return;
-  const index = Number(button.dataset.line);
-  const delta = Number(button.dataset.delta);
-  cart[index].quantity += delta;
-  if (cart[index].quantity < 1) cart.splice(index, 1);
-  cartResult.replaceChildren();
-  updateCart({ line: index, delta });
-});
-document.querySelector('#checkout').textContent = 'Посмотреть демочек ↗';
-document.querySelector('#checkout').addEventListener('click', () => {
-  cartResult.innerHTML = `<div class="receipt-ready"><span class="eyebrow">Демозаказ собран</span><h3>Всё по вашему вкусу.</h3><p>Попробуйте сохранить чек. В рабочем магазине этот сценарий можно связать с кассой и оплатой.</p><div class="receipt-actions"><button class="pill primary" id="receipt-download">Скачать чек ↓</button><button class="pill outline" id="receipt-copy">Скопировать</button></div><a class="developer-link" href="${telegram}" target="_blank" rel="noopener noreferrer">Хочу такой сайт · написать @fle3n ↗</a></div>`;
-  cartResult.querySelector('#receipt-download').addEventListener('click', () => downloadText('tiho-demo-order.txt', receipt()));
-  cartResult.querySelector('#receipt-copy').addEventListener('click', event => copyText(receipt(), event.currentTarget));
-  cartResult.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
-});
-
-showProducts('coffee');
-updateCart();
+const list=document.querySelector('#menu-list'), form=document.querySelector('#drink-form'), dialog=document.querySelector('#cart');
+let category='coffee', selected=products.find(p=>p.id==='capp'), cart=[];
+try{const saved=JSON.parse(localStorage.getItem('tiho-cart-v3')||'[]');if(Array.isArray(saved))cart=saved.slice(0,40).filter(line=>products.some(p=>p.id===line.id)&&Number.isInteger(line.quantity)&&line.quantity>0).map(line=>({id:line.id,size:line.size==='350'?'350':'250',milk:line.milk==='oat'?'oat':'regular',quantity:Math.min(20,line.quantity)}))}catch{}
+function renderMenu(){list.innerHTML=products.filter(p=>p.category===category).map(p=>`<article class="menu-row ${p.id===selected.id?'selected':''}"><div><h3>${p.name}</h3><p>${p.note}</p></div><span>${money(p.price)}</span><button class="icon-button" data-pick="${p.id}" aria-label="Выбрать ${p.name}">${icon('plus')}</button></article>`).join('')}
+function updatePrice(){document.querySelector('#drink-add').innerHTML=`Добавить за ${money(priceFor(selected,form.elements.size.value,form.elements.milk.value))} ${icon('plus')}`}
+function select(id,milk,scroll=true){const next=products.find(p=>p.id===id);if(!next)return;selected=next;category=selected.category;form.reset();if(milk==='oat')form.elements.milk.value='oat';document.querySelector('#drink-name').textContent=selected.name;document.querySelector('#drink-note').textContent=selected.flavor||selected.note;document.querySelector('#drink-options').hidden=!selected.customizable;document.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category===category)));renderMenu();updatePrice();if(scroll){document.querySelector(innerWidth<=800?'#drink-detail':'#menu').scrollIntoView({behavior:behavior(),block:'start'});document.querySelector('#drink-name').setAttribute('tabindex','-1');document.querySelector('#drink-name').focus({preventScroll:true})}}
+document.addEventListener('click',event=>{const pick=event.target.closest('[data-pick]');if(pick)select(pick.dataset.pick);const filter=event.target.closest('[data-category]');if(filter){category=filter.dataset.category;document.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===filter)));renderMenu()}});
+form.addEventListener('change',updatePrice);
+form.addEventListener('submit',event=>{event.preventDefault();const line={id:selected.id,size:selected.customizable?form.elements.size.value:'250',milk:selected.customizable?form.elements.milk.value:'regular',quantity:1};const existing=cart.find(p=>p.id===line.id&&p.size===line.size&&p.milk===line.milk);if(existing)existing.quantity=Math.min(20,existing.quantity+1);else cart.push(line);updateCart();notify(`${selected.name} добавлен в заказ`)});
+function total(){return cart.reduce((sum,line)=>sum+priceFor(products.find(p=>p.id===line.id),line.size,line.milk)*line.quantity,0)}
+function description(line){const p=products.find(p=>p.id===line.id);return p.customizable?`${line.size} мл, ${line.milk==='oat'?'овсяное молоко':'обычное молоко'}`:p.category==='bakery'?'Выпечка':'Без изменений'}
+function updateCart(focus){try{localStorage.setItem('tiho-cart-v3',JSON.stringify(cart))}catch{}const count=cart.reduce((sum,line)=>sum+line.quantity,0);document.querySelector('#cart-count').textContent=count;document.querySelector('#cart-open').setAttribute('aria-label',`Открыть заказ: ${count}`);document.querySelector('#cart-total').textContent=money(total());document.querySelector('#cart-items').innerHTML=cart.length?cart.map((line,i)=>{const p=products.find(p=>p.id===line.id);return `<article class="cart-row"><div><h3>${p.name}</h3><p>${description(line)}</p><strong>${money(priceFor(p,line.size,line.milk)*line.quantity)}</strong></div><div class="quantity"><button class="icon-button" data-line="${i}" data-delta="-1" aria-label="Убрать один ${p.name}"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14"/></svg></button><span>${line.quantity}</span><button class="icon-button" data-line="${i}" data-delta="1" aria-label="Добавить один ${p.name}" ${line.quantity>=20?'disabled':''}>${icon('plus')}</button></div></article>`}).join(''):'<div class="cart-empty"><h3>Начните с любимого напитка.</h3><p>Выберите кофе в меню или спросите бариста, что попробовать.</p></div>';document.querySelector('#receipt-download').disabled=!cart.length;document.querySelector('#receipt-copy').disabled=!cart.length;if(focus)document.querySelector(`[data-line="${Math.min(focus.index,cart.length-1)}"][data-delta="${focus.delta}"]`)?.focus()}
+function receipt(){return ['ТИХО · ДЕМОНСТРАЦИОННЫЙ ЧЕК','',...cart.map(line=>{const p=products.find(p=>p.id===line.id);return `${p.name}, ${description(line)}, количество ${line.quantity}: ${money(priceFor(p,line.size,line.milk)*line.quantity)}`;}),'',`Итого: ${money(total())}`,'Заказ не отправлен, оплата не выполнялась.','Разработка: https://t.me/fle3n'].join('\n')}
+document.querySelector('#cart-open').addEventListener('click',()=>{updateCart();dialog.showModal()});
+dialog.addEventListener('click',event=>{const b=event.target.closest('[data-line]');if(!b)return;const index=Number(b.dataset.line),delta=Number(b.dataset.delta);cart[index].quantity+=delta;if(cart[index].quantity<=0)cart.splice(index,1);updateCart({index,delta})});
+document.querySelector('#receipt-download').addEventListener('click',()=>downloadText('tiho-demo-order.txt',receipt()));
+document.querySelector('#receipt-copy').addEventListener('click',event=>copyText(receipt(),event.currentTarget));
+document.addEventListener('portfolio:product',event=>select(event.detail.id,event.detail.milk));
+document.addEventListener('portfolio:cart',()=>{updateCart();dialog.showModal()});
+wireDialog(dialog);mountAssistant(document.querySelector('#coffee-assistant'),'coffee');select('capp',null,false);updateCart();
