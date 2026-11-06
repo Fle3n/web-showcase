@@ -1,0 +1,15 @@
+{
+  "mode": "built-in image_gen.imagegen",
+  "created_at": "2026-11-06",
+  "purpose": "Fictional portfolio website concept assets; no real clinic claims.",
+  "assets": [
+    {
+      "destination": "assets/coffee-v3.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: photographic website asset for a fictional premium coffee portfolio concept, not a UI mockup.\nPrimary request: editorial product photograph of a close, well-made flat white in a pale ceramic cup on a light limestone table with one small flaky croissant beside it.\nScene/backdrop: quiet grey and off-white cafe surroundings, uncluttered and softly out of focus.\nStyle/medium: premium honest real food photography, natural photographic detail, no illustration, no 3D rendering.\nComposition/framing: landscape 4:3 image, intimate three-quarter overhead view, cup and croissant arranged naturally with breathing room around them; the whole cup visible.\nLighting/mood: morning side light, subtle believable shadows, calm and inviting.\nMaterials/textures: rich espresso crema and delicate microfoam latte art, tactile pale ceramic glaze, fine limestone texture, crisp buttery croissant layers.\nConstraints: no people, no hands, no lettering, no text, no logos, no watermark. Produce one single photograph."
+    },
+    {
+      "destination": "assets/clinic-v3.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: architectural photographic website asset for a fictional dental clinic portfolio concept, not a real clinic claim, not a UI mockup.\nPrimary request: portrait 4:5 architectural photograph of an inviting modern dental treatment room with pale natural oak cabinetry, off-white walls, forest green accents, and professionally plausible modern dental chair and equipment.\nScene/backdrop: a clean, calm treatment room with a large daylight window, neat oak storage and work surface, restrained forest-green dental chair upholstery. Credible clinical layout with articulated examination lamp, dentist delivery unit with orderly handpiece hoses, assistant stool and integrated equipment; all coherently constructed.\nStyle/medium: premium honest architectural interior photography with natural material detail, accurate perspective and verticals, not illustration or 3D rendering.\nComposition/framing: portrait 4:5 frame, view from the room entrance at normal human eye level showing the dental chair as the focus and enough surrounding architecture to feel welcoming, spacious and plausible.\nLighting/mood: soft daylight, warm calm atmosphere, gentle realistic shadows.\nMaterials/textures: natural pale oak grain, matte off-white paint, smooth professional chair upholstery, clean neutral floor.\nConstraints: no people, no text, no logos, no signs, no watermarks, no distorted equipment, no excessive decorative objects. Produce one single photograph."
+    }
+  ]
+}
